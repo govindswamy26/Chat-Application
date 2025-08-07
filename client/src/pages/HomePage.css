@@ -1,0 +1,46 @@
+/* Main container */
+.homepage-container {
+  border: 1px solid;
+  width: 100%;
+  height: 100vh;
+}
+
+@media (min-width: 640px) {
+  .homepage-container {
+    padding: 5% 15%;
+  }
+}
+
+/* Layout container */
+.homepage-layout {
+  backdrop-filter: blur(12px);
+  border: 2px solid #4b5563;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 100%;
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+}
+
+/* Layout with selected user */
+.homepage-layout.with-selected-user {
+  grid-template-columns: 1fr 1.5fr 1fr;
+}
+
+@media (min-width: 1280px) {
+  .homepage-layout.with-selected-user {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+/* Layout without selected user */
+.homepage-layout.without-selected-user {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .homepage-layout.without-selected-user {
+    grid-template-columns: 1fr 1fr;
+  }
+}

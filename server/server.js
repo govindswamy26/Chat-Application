@@ -13,7 +13,10 @@ const server = http.createServer(app);
 
 // Initialize socket.io server
 export const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: {
+    origin: process.env.FRONTEND_URL, // e.g. https://chat-frontend.onrender.com
+    credentials: true,
+  },
 });
 
 // Store online users

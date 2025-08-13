@@ -86,7 +86,7 @@ const ChatContainer = () => {
                         value={input} 
                         onKeyDown={(e)=> e.key === "Enter" ? handleSendMessage(e) : null} 
                         type="text" 
-                        placeholder="Send a message"
+                        placeholder="Type a message and press Enter to send..."
                         className='message-input'
                     />
                     <input onChange={handleSendImage} type="file" id='image' accept='image/png, image/jpeg' hidden/>

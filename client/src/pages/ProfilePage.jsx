@@ -32,7 +32,9 @@ const ProfilePage = () => {
     <div className='profile-page-container'>
       <div className='profile-form-container'>
         <form onSubmit={handleSubmit} className="profile-form">
-          <h3 className="form-title">Profile details</h3>
+          <h3 className="form-title">Profile Details</h3>
+          <p className="form-subtitle">Update your profile information and settings</p>
+          
           <label htmlFor="avatar" className='avatar-upload'>
             <input 
               onChange={(e) => setSelectedImg(e.target.files[0])} 
@@ -46,32 +48,60 @@ const ProfilePage = () => {
               alt="" 
               className={`avatar-preview ${selectedImg ? 'rounded' : ''}`}
             />
-            upload profile image
+            <div className='avatar-upload-text'>
+              <div className='avatar-upload-title'>Upload Profile Image</div>
+              <div className='avatar-upload-subtitle'>Click to select a new profile picture</div>
+            </div>
           </label>
-          <input 
-            onChange={(e) => setName(e.target.value)} 
-            value={name}
-            type="text" 
-            required 
-            placeholder='Your name' 
-            className='form-input'
-          />
-          <textarea 
-            onChange={(e) => setBio(e.target.value)} 
-            value={bio} 
-            placeholder="Write profile bio" 
-            required 
-            className="form-textarea" 
-            rows={4}
-          ></textarea>
+          
+          <div className='form-group'>
+            <label className='form-label'>Full Name</label>
+            <input 
+              onChange={(e) => setName(e.target.value)} 
+              value={name}
+              type="text" 
+              required 
+              placeholder='Enter your full name' 
+              className='form-input'
+            />
+          </div>
+          
+          <div className='form-group'>
+            <label className='form-label'>Bio</label>
+            <textarea 
+              onChange={(e) => setBio(e.target.value)} 
+              value={bio} 
+              placeholder="Tell us about yourself..." 
+              required 
+              className="form-textarea" 
+              rows={4}
+            ></textarea>
+          </div>
 
-          <button type="submit" className="submit-button">Save</button>
+          <button type="submit" className="submit-button">Save Changes</button>
         </form>
-        <img 
-          className={`profile-image ${selectedImg ? 'rounded' : ''}`} 
-          src={authUser?.profilePic || assets.logo_icon} 
-          alt="" 
-        />
+        
+        <div className='profile-image-section'>
+          <img 
+            className={`profile-image ${selectedImg ? 'rounded' : ''}`} 
+            src={authUser?.profilePic || assets.logo_icon} 
+            alt="" 
+          />
+          <div className='profile-info'>
+            <div className='profile-name'>{authUser?.fullName || 'User Name'}</div>
+            <div className='profile-email'>{authUser?.email || 'user@example.com'}</div>
+            <div className='profile-stats'>
+              <div className='profile-stat'>
+                <div className='profile-stat-number'>24</div>
+                <div className='profile-stat-label'>Messages</div>
+              </div>
+              <div className='profile-stat'>
+                <div className='profile-stat-number'>12</div>
+                <div className='profile-stat-label'>Friends</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

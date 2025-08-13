@@ -27,20 +27,27 @@ const RightSidebar = () => {
                     {onlineUsers.includes(selectedUser._id) && <span className='online-indicator'></span>}
                     {selectedUser.fullName}
                 </h1>
-                <p className='user-bio'>{selectedUser.bio}</p>
+                <p className='user-bio'>{selectedUser.bio || "No bio available"}</p>
             </div>
 
             <hr className="divider"/>
 
             <div className="media-section">
-                <p className='media-title'>Media</p>
-                <div className='media-grid'>
-                    {msgImages.map((url, index) => (
-                        <div key={index} onClick={() => window.open(url)} className='media-item'>
-                            <img src={url} alt="" className='media-image'/>
-                        </div>
-                    ))}
-                </div>
+                <p className='media-title'>Shared Media</p>
+                {msgImages.length > 0 ? (
+                    <div className='media-grid'>
+                        {msgImages.map((url, index) => (
+                            <div key={index} onClick={() => window.open(url)} className='media-item'>
+                                <img src={url} alt="" className='media-image'/>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className='empty-media'>
+                        <img src={assets.gallery_icon} alt="" className='empty-media-icon' />
+                        <p className='empty-media-text'>No media shared yet</p>
+                    </div>
+                )}
             </div>
 
             <button onClick={() => logout()} className='logout-button'>

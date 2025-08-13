@@ -101,6 +101,7 @@ const ChatContainer = () => {
         <div className='empty-chat-state'>
             <img src={assets.logo_icon} className='empty-chat-logo' alt="" />
             <p className='empty-chat-text'>Chat anytime, anywhere</p>
+            <p className='empty-chat-subtitle'>Select a user from the sidebar to start a conversation</p>
         </div>
     )
 }

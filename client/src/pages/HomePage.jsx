@@ -11,7 +11,7 @@ const HomePage = () => {
 
     return (
         <div className='homepage-container'>
-            <div className={`homepage-layout ${selectedUser ? 'with-selected-user' : 'without-selected-user'}`}>
+            <div className={`homepage-layout glass-wrapper ${selectedUser ? 'with-selected-user' : 'without-selected-user'}`}>
                 <Sidebar />
                 <ChatContainer />
                 <RightSidebar />
